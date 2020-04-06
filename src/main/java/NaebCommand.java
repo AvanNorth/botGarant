@@ -25,7 +25,7 @@ public final class NaebCommand extends BotsCommand {
             if (matcher.find()) {
                 System.out.println("Full match: " + matcher.group(0));
                 SendMessage message = new SendMessage();
-                message.setChatId(Long.parseLong(strings[0]));
+                message.setChatId(Long.parseLong(strings[0],10));
                 message.setText(matcher.group(0));
                 execute(absSender, message, user);
             }
