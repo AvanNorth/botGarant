@@ -6,8 +6,13 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class NaebBot extends TelegramLongPollingCommandBot {
+
+    private Long naebChatId;
 
         public NaebBot() {
             StartCommand startCommand = new StartCommand(this);
@@ -35,11 +40,22 @@ public class NaebBot extends TelegramLongPollingCommandBot {
                     sendMessageToUser(615213408,msg.getChatId().toString());
                     break;
                 }
+                case "Очередной наеб":{
+                    if (chatId == 615213408){
+                        naebChatId = Long.parseLong(msg.getText());
+                        final String regex = "\\D+";
+                        final Pattern pattern = Pattern.compile(regex);
+                        final Matcher matcher = pattern.matcher(msg.getText());
+                        if (matcher.find()) {
+                            System.out.println("Full match: " + matcher.group(0));
+                            sendMessageToUser(naebChatId,matcher.group(0));
+                        }
 
-                default: {
-                    if(chatId == 615213408){
-                        
+                       sendMessageToUser(615213408,"Пиши крч данные от акка:");
                     }
+                    break;
+                }
+                default: {
                     if (!msg.getText().equals("/start")) {
                         sendMessageToUser(chatId, "Извини, но я тебя не понимаю, \nпопробуй нажать /start");
                     }
@@ -47,6 +63,7 @@ public class NaebBot extends TelegramLongPollingCommandBot {
                 }
             }
         }
+
 
 
     private void sendMessageToUser(long chatId, String text) {
