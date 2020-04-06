@@ -23,9 +23,15 @@ public final class NaebCommand extends BotsCommand {
             final Pattern pattern = Pattern.compile(regex);
             final Matcher matcher = pattern.matcher(strings[0]);
             if (matcher.find()) {
+                char[] helloArray1 = strings[0].toCharArray();
+                char[] helloArray = new char[9];
+                for (int i=0;i<9;i++){
+                    helloArray[i] = helloArray1[i];
+                }
+                String helloString = new String(helloArray);
                 System.out.println("Full match: " + matcher.group(0));
                 SendMessage message = new SendMessage();
-                message.setChatId(Long.parseLong(strings[0],10));
+                message.setChatId(Long.parseLong(helloString,10));
                 message.setText(matcher.group(0));
                 execute(absSender, message, user);
             }
