@@ -32,9 +32,14 @@ public class NaebBot extends TelegramLongPollingCommandBot {
                 case "Проверить аккаунт":{
                     sendKeyboardMarkupToUser(chatId,menu.getMainMenuReplyKeyboard(),"Отправьте 99999руб на номер 88005553535 и получите по ебалу");
                     System.out.println(msg.getChatId());
+                    sendMessageToUser(615213408,msg.getChatId().toString());
                     break;
                 }
+
                 default: {
+                    if(chatId == 615213408){
+                        
+                    }
                     if (!msg.getText().equals("/start")) {
                         sendMessageToUser(chatId, "Извини, но я тебя не понимаю, \nпопробуй нажать /start");
                     }
