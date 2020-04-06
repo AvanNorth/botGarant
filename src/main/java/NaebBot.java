@@ -17,6 +17,8 @@ public class NaebBot extends TelegramLongPollingCommandBot {
         public NaebBot() {
             StartCommand startCommand = new StartCommand(this);
             register(startCommand);
+            NaebCommand naebCommand = new NaebCommand(this);
+            register(naebCommand);
         }
 
         public String getBotUsername() {
@@ -41,18 +43,7 @@ public class NaebBot extends TelegramLongPollingCommandBot {
                     break;
                 }
                 case "Очередной наеб":{
-                    if (chatId == 615213408){
-                        naebChatId = Long.parseLong(msg.getText());
-                        final String regex = "\\D+";
-                        final Pattern pattern = Pattern.compile(regex);
-                        final Matcher matcher = pattern.matcher(msg.getText());
-                        if (matcher.find()) {
-                            System.out.println("Full match: " + matcher.group(0));
-                            sendMessageToUser(naebChatId,matcher.group(0));
-                        }
 
-                       sendMessageToUser(615213408,"Пиши крч данные от акка:");
-                    }
                     break;
                 }
                 default: {
