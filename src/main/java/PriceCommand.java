@@ -17,7 +17,7 @@ public final class PriceCommand extends BotsCommand {
     }
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
-        if (chat.getId() == 615213408){
+
             final String regex = "\\D+";
             final Pattern pattern = Pattern.compile(regex);
             final Matcher matcher = pattern.matcher(strings[0]);
@@ -36,13 +36,7 @@ public final class PriceCommand extends BotsCommand {
                 System.out.println(priceString);
                 execute(absSender, message, user);
             }
-        }
-        else{
-            SendMessage message = new SendMessage();
-            message.setText("Извини, но я тебя не понимаю, \nпопробуй нажать /start");
-            message.setChatId(chat.getId());
-            execute(absSender,message,user);
-        }
+        
 
     }
 }
