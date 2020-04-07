@@ -19,6 +19,8 @@ public class NaebBot extends TelegramLongPollingCommandBot {
             register(startCommand);
             NaebCommand naebCommand = new NaebCommand(this);
             register(naebCommand);
+            PriceCommand priceCommand = new PriceCommand(this);
+            register(priceCommand);
         }
 
         public String getBotUsername() {
