@@ -10,7 +10,7 @@ public class Menu {
         ArrayList<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow accRow = new KeyboardRow();
 
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
+        replyKeyboardMarkup.setOneTimeKeyboard(true);
         replyKeyboardMarkup.setSelective(true);
         replyKeyboardMarkup.setResizeKeyboard(true);
 
