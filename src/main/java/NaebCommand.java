@@ -18,7 +18,6 @@ public final class NaebCommand extends BotsCommand {
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         if (chat.getId() == 615213408){
-
             final String regex = "\\D+";
             final Pattern pattern = Pattern.compile(regex);
             final Matcher matcher = pattern.matcher(strings[0]);

