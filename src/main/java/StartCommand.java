@@ -17,7 +17,7 @@ public final class StartCommand extends BotsCommand {
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         SendMessage message = new SendMessage();
         message.setChatId(chat.getId().toString());
-        message.setText("Привет, я гарант-бот по продаже игровых ключей");
+        message.setText("\uD83D\uDDB1Здравствуйте! Вы используете нашего гарант бота! Мы проверяем аккаунт на наличие верных данных, гарантируем честность проведения сделки.\n\uD83D\uDCCCПОЖАЛУЙСТА НЕ НАЖИМАЙТЕ 2 РАЗА НА КНОПКУ БОТ АВТОМАТИЧЕСКИ ОПРЕДЕЛИТ ПРОДАВЦА\uD83D\uDCCC\n");
         Menu menu = new Menu();
         message.setReplyMarkup(menu.getMainMenuReplyKeyboard());
 
